@@ -27,19 +27,20 @@ export default function HeroSection() {
             className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#008080]/10 to-[#008080]/5 rounded-full border border-[#008080]/20 backdrop-blur-sm"
           >
             <Shield className="w-4 h-4 text-[#008080]" />
-            <span className="text-sm text-[#008080]">Built for Indian SMEs</span>
+            <span className="text-sm text-[#008080]">Built with Indian business owners</span>
           </motion.div>
           
           <div className="space-y-6">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.1]">
-              <span className="block">Your AI-Powered</span>
+              <span className="block">“Current systems aren’t working.”</span>
               <span className="block bg-gradient-to-r from-[#008080] to-[#006666] bg-clip-text text-transparent">
-                Accounting Assistant
+                We heard it from business owners across India.
               </span>
             </h1>
             
             <p className="text-xl text-[#4B5563] max-w-xl leading-relaxed">
-              Automate e-invoices, GST filings, and reconciliations. Get real-time insights and save hours every week with intelligent automation.
+              Many told us their current tools are too slow or complex, reporting is limited,
+              and GST compliance is a headache. We’re building Zaudit with them — not for them.
             </p>
           </div>
           
@@ -49,7 +50,7 @@ export default function HeroSection() {
               className="bg-[#008080] hover:bg-[#006666] text-white text-lg px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all group"
               onClick={() => document.getElementById('signup')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Start Free Trial
+              Join the waitlist
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button 
@@ -71,7 +72,7 @@ export default function HeroSection() {
           >
             <div className="flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-[#FF9933]" />
-              <span className="text-sm text-[#4B5563]">AI-Powered</span>
+              <span className="text-sm text-[#4B5563]">Built from interviews</span>
             </div>
             <div className="flex items-center gap-2">
               <Shield className="w-5 h-5 text-[#008080]" />
@@ -79,7 +80,7 @@ export default function HeroSection() {
             </div>
             <div className="flex items-center gap-2">
               <Zap className="w-5 h-5 text-[#FF9933]" />
-              <span className="text-sm text-[#4B5563]">5-Min Setup</span>
+              <span className="text-sm text-[#4B5563]">Focused on simplicity</span>
             </div>
           </motion.div>
         </motion.div>

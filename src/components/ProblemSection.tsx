@@ -3,19 +3,22 @@ import { FileText, AlertCircle, Clock } from 'lucide-react';
 
 const problems = [
   {
+    icon: Clock,
+    title: 'Too slow or complex',
+    description:
+      'Owners told us current tools feel heavy and slow, so teams fall back to spreadsheets and WhatsApp — very frequently.',
+  },
+  {
     icon: FileText,
-    title: 'Manual Data Entry',
-    description: 'Countless hours spent copying data between Tally, Excel, and GST portals, leading to inefficiency and errors.',
+    title: 'Limited reporting & visibility',
+    description:
+      'Fast reports are hard. People spend time on manual data entry instead of getting insights to run the business.',
   },
   {
     icon: AlertCircle,
-    title: 'GST Compliance Complexity',
-    description: 'ITC mismatches and reconciliation challenges that demand extensive manual verification and corrections.',
-  },
-  {
-    icon: Clock,
-    title: 'Delayed Reporting',
-    description: 'Time-consuming month-end closures and rushed compliance filings that impact business decisions.',
+    title: 'GST headaches',
+    description:
+      'Compliance is stressful. Many rely on their CA to handle filings, with manual reconciliation and constant follow-ups.',
   },
 ];
 
@@ -31,13 +34,15 @@ export default function ProblemSection() {
           className="text-center mb-20"
         >
           <div className="inline-block mb-4">
-            <span className="text-sm tracking-wider text-[#008080] uppercase">The Challenge</span>
+            <span className="text-sm tracking-wider text-[#008080] uppercase">What we heard</span>
           </div>
           <h2 className="text-4xl lg:text-5xl mb-6 max-w-3xl mx-auto leading-tight">
-            Traditional accounting holds your business back
+            Business owners are unhappy with current systems
           </h2>
           <p className="text-xl text-[#6B7280] max-w-2xl mx-auto">
-            Legacy systems and manual processes create inefficiencies that cost time, money, and peace of mind.
+            Across industries and cities, most use Tally today and still rely on
+            spreadsheets/WhatsApp. The top pain points: speed and complexity, limited reporting, and
+            GST compliance that takes too much manual effort.
           </p>
         </motion.div>
 

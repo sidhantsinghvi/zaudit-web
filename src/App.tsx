@@ -6,6 +6,11 @@ import SignupForm from './components/SignupForm';
 import SocialProof from './components/SocialProof';
 import Footer from './components/Footer';
 import FloatingCTA from './components/FloatingCTA';
+import ComparisonHero from './components/ComparisonHero';
+import CompetitiveOverview from './components/CompetitiveOverview';
+import CostVsFeature from './components/CostVsFeature';
+import AutomationProductivity from './components/AutomationProductivity';
+import WhySwitch from './components/WhySwitch';
 
 export default function App() {
   return (
@@ -21,6 +26,13 @@ export default function App() {
 
       {/* Product Preview */}
       <ProductPreview />
+
+      {/* Comparison Page Sections */}
+      <ComparisonHero />
+      <CompetitiveOverview />
+      <CostVsFeature />
+      <AutomationProductivity />
+      <WhySwitch />
 
       {/* Social Proof */}
       <SocialProof />
