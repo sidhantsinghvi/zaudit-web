@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg role="img" aria-labelledby="title desc" width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <title id="title">Zaudit: Automation vs Productivity (Time Saved)</title>
+  <desc id="desc">Scatter plot comparing products on automation and time saved. Zaudit is highlighted with top-right placement.</desc>
+  <defs>
+    <style type="text/css"><![CDATA[
+      .axis { stroke: #e5e7eb; stroke-width: 2; }
+      .grid { stroke: #eef2f7; stroke-width: 1; }
+      .label { fill: #374151; font: 12px sans-serif; }
+      .title { fill: #111827; font: 16px sans-serif; font-weight: bold; }
+      .point { fill: #9CA3AF; }
+      .point-text { fill: #4B5563; font: 12px sans-serif; }
+      .zaudit { fill: #008080; }
+      .legend-text { fill: #4B5563; font: 12px sans-serif; }
+    ]]></style>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="28" text-anchor="middle" class="title">Automation vs Productivity Gains</text>
+
+  <!-- Plot area -->
+  <rect x="60" y="40" width="700" height="420" fill="#ffffff" stroke="#e5e7eb"/>
+
+  <!-- Grid lines -->
+  <g class="grid">
+    <!-- vertical -->
+    <line x1="60" y1="460" x2="60" y2="40"/>
+    <line x1="130" y1="460" x2="130" y2="40"/>
+    <line x1="200" y1="460" x2="200" y2="40"/>
+    <line x1="270" y1="460" x2="270" y2="40"/>
+    <line x1="340" y1="460" x2="340" y2="40"/>
+    <line x1="410" y1="460" x2="410" y2="40"/>
+    <line x1="480" y1="460" x2="480" y2="40"/>
+    <line x1="550" y1="460" x2="550" y2="40"/>
+    <line x1="620" y1="460" x2="620" y2="40"/>
+    <line x1="690" y1="460" x2="690" y2="40"/>
+    <line x1="760" y1="460" x2="760" y2="40"/>
+    <!-- horizontal -->
+    <line x1="60" y1="460" x2="760" y2="460"/>
+    <line x1="60" y1="418" x2="760" y2="418"/>
+    <line x1="60" y1="376" x2="760" y2="376"/>
+    <line x1="60" y1="334" x2="760" y2="334"/>
+    <line x1="60" y1="292" x2="760" y2="292"/>
+    <line x1="60" y1="250" x2="760" y2="250"/>
+    <line x1="60" y1="208" x2="760" y2="208"/>
+    <line x1="60" y1="166" x2="760" y2="166"/>
+    <line x1="60" y1="124" x2="760" y2="124"/>
+    <line x1="60" y1="82" x2="760" y2="82"/>
+    <line x1="60" y1="40" x2="760" y2="40"/>
+  </g>
+
+  <!-- Axes -->
+  <line class="axis" x1="60" y1="460" x2="760" y2="460"/>
+  <line class="axis" x1="60" y1="460" x2="60" y2="40"/>
+
+  <!-- Axis labels -->
+  <text x="410" y="490" text-anchor="middle" class="label">Automation →</text>
+  <text x="16" y="250" text-anchor="middle" class="label" transform="rotate(-90 16 250)">Time Saved →</text>
+
+  <!-- Helper mapping value[0..10]: x = 60 + v*70, y = 460 - v*42 -->
+  <!-- Others -->
+  <circle class="point" cx="60 + 2*70" cy="460 - 2*42" r="6"/><text class="point-text" x="60 + 2*70 + 10" y="460 - 2*42 - 8">Tally</text>
+  <circle class="point" cx="60 + 3*70" cy="460 - 3*42" r="6"/><text class="point-text" x="60 + 3*70 + 10" y="460 - 3*42 - 8">Busy</text>
+  <circle class="point" cx="60 + 3*70" cy="460 - 3*42" r="6"/><text class="point-text" x="60 + 3*70 + 10" y="460 - 3*42 + 18">Marg</text>
+  <circle class="point" cx="60 + 5*70" cy="460 - 5*42" r="6"/><text class="point-text" x="60 + 5*70 + 10" y="460 - 5*42 - 8">Zoho Books</text>
+  <circle class="point" cx="60 + 4*70" cy="460 - 4*42" r="6"/><text class="point-text" x="60 + 4*70 + 10" y="460 - 4*42 - 8">myBillBook</text>
+  <circle class="point" cx="60 + 8*70" cy="460 - 7*42" r="6"/><text class="point-text" x="60 + 8*70 + 10" y="460 - 7*42 - 8">Suvit</text>
+  <circle class="point" cx="60 + 8*70" cy="460 - 7*42" r="6"/><text class="point-text" x="60 + 8*70 + 10" y="460 - 7*42 + 18">ClearTax</text>
+
+  <!-- Zaudit -->
+  <circle class="zaudit" cx="60 + 9.5*70" cy="460 - 9.5*42" r="8"/>
+  <text class="point-text" x="60 + 9.5*70 + 12" y="460 - 9.5*42 + 4" style="font-weight:bold; fill:#008080;">Zaudit</text>
+
+  <!-- Legend -->
+  <rect x="555" y="52" width="205" height="56" fill="#ffffff" stroke="#e5e7eb"/>
+  <circle cx="575" cy="72" r="6" class="point"/>
+  <text x="590" y="76" class="legend-text">Other products</text>
+  <circle cx="575" cy="98" r="8" class="zaudit"/>
+  <text x="590" y="102" class="legend-text" style="font-weight:bold; fill:#008080;">Zaudit</text>
+</svg>
+
+
