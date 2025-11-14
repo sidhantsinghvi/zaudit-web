@@ -1,13 +1,9 @@
 name: Deploy Backend to Fly
 
+# Temporarily disabled automatic Fly deployments until tokens are available.
+# Trigger manually from the Actions tab if needed.
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'server/**'
-      - 'fly.toml'
-      - '.github/workflows/fly-deploy.yml'
+  workflow_dispatch:
 
 jobs:
   deploy:
