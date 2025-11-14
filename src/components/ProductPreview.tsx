@@ -1,5 +1,6 @@
+import React from 'react';
 import { motion } from 'motion/react';
-import { Play, TrendingUp, FileCheck, PieChart } from 'lucide-react';
+import { TrendingUp, FileCheck, PieChart } from 'lucide-react';
 
 export default function ProductPreview() {
   return (
@@ -28,48 +29,47 @@ export default function ProductPreview() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#E5E7EB] group cursor-pointer bg-gradient-to-br from-[#F9FAFB] to-white"
+          className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#E5E7EB] bg-gradient-to-br from-[#F9FAFB] to-white"
         >
-          {/* Video Placeholder */}
-          <div className="relative aspect-video flex items-center justify-center p-12">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-5">
-              <div className="grid grid-cols-12 gap-4 h-full p-8">
-                {[...Array(36)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="bg-[#008080] rounded"
-                  ></div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Play Button */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="relative z-10"
-            >
-              <div className="bg-white/95 backdrop-blur-sm rounded-full p-8 shadow-2xl group-hover:bg-[#008080] transition-all duration-300 border border-[#E5E7EB]">
-                <Play className="w-16 h-16 text-[#008080] group-hover:text-white transition-colors fill-current" />
-              </div>
-            </motion.div>
-            
-            {/* Feature Badges */}
-            <div className="absolute inset-0 pointer-events-none">
-              <div className="relative h-full w-full max-w-5xl mx-auto">
+          <div className="relative aspect-video">
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src="https://www.youtube.com/embed/f3nDRT_V4dY?rel=0&showinfo=0"
+              title="Zaudit product walkthrough"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+
+            <div className="pointer-events-none absolute inset-0 flex flex-col justify-between p-6 sm:p-8 lg:p-12">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="ml-auto bg-white/80 backdrop-blur rounded-xl px-4 py-3 shadow-lg border border-[#E5E7EB]"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-[#008080]/10 flex items-center justify-center">
+                    <FileCheck className="w-4 h-4 text-[#008080]" />
+                  </div>
+                  <span className="text-sm text-[#1a1a1a] font-medium">Auto GST Filing</span>
+                </div>
+              </motion.div>
+
+              <div className="flex flex-wrap items-end justify-between gap-4">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
-                  className="absolute top-12 left-12 bg-white/95 backdrop-blur-sm px-4 py-3 rounded-xl shadow-lg border border-[#E5E7EB]"
+                  className="bg-white/80 backdrop-blur rounded-xl px-4 py-3 shadow-lg border border-[#E5E7EB]"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#008080]/10 flex items-center justify-center">
-                      <FileCheck className="w-4 h-4 text-[#008080]" />
+                    <div className="w-8 h-8 rounded-lg bg-[#FF9933]/10 flex items-center justify-center">
+                      <TrendingUp className="w-4 h-4 text-[#FF9933]" />
                     </div>
-                    <span className="text-sm text-[#1a1a1a]">Auto GST Filing</span>
+                    <span className="text-sm text-[#1a1a1a] font-medium">Real-time Analytics</span>
                   </div>
                 </motion.div>
 
@@ -78,28 +78,13 @@ export default function ProductPreview() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 }}
-                  className="absolute top-12 right-12 bg-white/95 backdrop-blur-sm px-4 py-3 rounded-xl shadow-lg border border-[#E5E7EB]"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#FF9933]/10 flex items-center justify-center">
-                      <TrendingUp className="w-4 h-4 text-[#FF9933]" />
-                    </div>
-                    <span className="text-sm text-[#1a1a1a]">Real-time Analytics</span>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4 }}
-                  className="absolute bottom-12 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-sm px-4 py-3 rounded-xl shadow-lg border border-[#E5E7EB]"
+                  className="bg-white/80 backdrop-blur rounded-xl px-4 py-3 shadow-lg border border-[#E5E7EB]"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-lg bg-[#008080]/10 flex items-center justify-center">
                       <PieChart className="w-4 h-4 text-[#008080]" />
                     </div>
-                    <span className="text-sm text-[#1a1a1a]">Smart Insights</span>
+                    <span className="text-sm text-[#1a1a1a] font-medium">Smart Insights</span>
                   </div>
                 </motion.div>
               </div>

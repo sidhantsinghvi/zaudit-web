@@ -14,11 +14,52 @@ export default function SignupForm() {
     city: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [message, setMessage] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const apiUrl = import.meta.env.VITE_API_URL;
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Placeholder for form submission
-    console.log('Form submitted:', formData);
-    alert('Thank you for your interest! We\'ll be in touch within 24 hours.');
+
+    if (!apiUrl) {
+      setStatus('error');
+      setMessage('Form endpoint is not configured.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setStatus('idle');
+    setMessage(null);
+
+    try {
+      const response = await fetch(`${apiUrl.replace(/\/$/, '')}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data?.message ?? 'Something went wrong. Please try again.');
+      }
+
+      setStatus('success');
+      setMessage(data?.message ?? 'Thank you! We will be in touch soon.');
+      setFormData({
+        name: '',
+        email: '',
+        businessType: '',
+        city: '',
+      });
+    } catch (error) {
+      setStatus('error');
+      setMessage(error instanceof Error ? error.message : 'Could not submit the form. Try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -141,14 +182,29 @@ export default function SignupForm() {
                 </div>
               </div>
 
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full bg-gradient-to-r from-[#008080] to-[#006666] hover:from-[#006666] hover:to-[#005555] text-white text-lg py-6 rounded-xl shadow-lg hover:shadow-xl transition-all group"
-              >
-                Request Early Access
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <div className="space-y-4">
+                <Button
+                  type="submit"
+                  size="lg"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-[#008080] to-[#006666] hover:from-[#006666] hover:to-[#005555] text-white text-lg py-6 rounded-xl shadow-lg hover:shadow-xl transition-all group disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? 'Submitting...' : 'Request Early Access'}
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+
+                {message && (
+                  <div
+                    className={`rounded-xl border p-4 text-sm ${
+                      status === 'success'
+                        ? 'border-emerald-200 bg-emerald-50 text-emerald-700'
+                        : 'border-rose-200 bg-rose-50 text-rose-700'
+                    }`}
+                  >
+                    {message}
+                  </div>
+                )}
+              </div>
 
               <p className="text-sm text-center text-[#6B7280]">
                 We respect your privacy. No spam, only product updates and early access notifications.

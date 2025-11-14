@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Zaudit Logo</title>
+  <desc id="desc">Circular badge with Zaudit brand mark.</desc>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+  </defs>
+  <circle cx="80" cy="80" r="72" fill="url(#grad)"/>
+  <path d="M38 100.5l38-49.5H46.5L46 53h66l-37 48.5h29l.5 6.5H38.5z" fill="#ffffff" />
+</svg>
+

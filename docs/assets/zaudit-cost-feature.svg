@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg role="img" aria-labelledby="title desc" width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <title id="title">Zaudit: Cost vs Feature Depth</title>
+  <desc id="desc">Scatter plot comparing accounting products on cost and feature depth. Zaudit is highlighted as high feature depth with lower cost.</desc>
+  <defs>
+    <style type="text/css"><![CDATA[
+      .axis { stroke: #e5e7eb; stroke-width: 2; }
+      .grid { stroke: #eef2f7; stroke-width: 1; }
+      .label { fill: #374151; font: 12px sans-serif; }
+      .title { fill: #111827; font: 16px sans-serif; font-weight: bold; }
+      .point { fill: #9CA3AF; }
+      .point-text { fill: #4B5563; font: 12px sans-serif; }
+      .zaudit { fill: #008080; }
+      .legend-text { fill: #4B5563; font: 12px sans-serif; }
+    ]]></style>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="28" text-anchor="middle" class="title">Cost vs Feature Depth</text>
+
+  <!-- Plot area -->
+  <rect x="60" y="40" width="700" height="420" fill="#ffffff" stroke="#e5e7eb"/>
+
+  <!-- Grid lines -->
+  <!-- vertical -->
+  <g class="grid">
+    <line x1="60" y1="460" x2="60" y2="40"/>
+    <line x1="130" y1="460" x2="130" y2="40"/>
+    <line x1="200" y1="460" x2="200" y2="40"/>
+    <line x1="270" y1="460" x2="270" y2="40"/>
+    <line x1="340" y1="460" x2="340" y2="40"/>
+    <line x1="410" y1="460" x2="410" y2="40"/>
+    <line x1="480" y1="460" x2="480" y2="40"/>
+    <line x1="550" y1="460" x2="550" y2="40"/>
+    <line x1="620" y1="460" x2="620" y2="40"/>
+    <line x1="690" y1="460" x2="690" y2="40"/>
+    <line x1="760" y1="460" x2="760" y2="40"/>
+  </g>
+  <!-- horizontal -->
+  <g class="grid">
+    <line x1="60" y1="460" x2="760" y2="460"/>
+    <line x1="60" y1="418" x2="760" y2="418"/>
+    <line x1="60" y1="376" x2="760" y2="376"/>
+    <line x1="60" y1="334" x2="760" y2="334"/>
+    <line x1="60" y1="292" x2="760" y2="292"/>
+    <line x1="60" y1="250" x2="760" y2="250"/>
+    <line x1="60" y1="208" x2="760" y2="208"/>
+    <line x1="60" y1="166" x2="760" y2="166"/>
+    <line x1="60" y1="124" x2="760" y2="124"/>
+    <line x1="60" y1="82" x2="760" y2="82"/>
+    <line x1="60" y1="40" x2="760" y2="40"/>
+  </g>
+
+  <!-- Axes -->
+  <line class="axis" x1="60" y1="460" x2="760" y2="460"/>
+  <line class="axis" x1="60" y1="460" x2="60" y2="40"/>
+
+  <!-- Axis labels -->
+  <text x="410" y="490" text-anchor="middle" class="label">Cost →</text>
+  <text x="16" y="250" text-anchor="middle" class="label" transform="rotate(-90 16 250)">Feature Depth →</text>
+
+  <!-- Helper: function to map value[0..10] -> pixels: x = 60 + v*70, y = 460 - v*42 -->
+  <!-- Points -->
+  <!-- Tally (8, 9) -->
+  <circle class="point" cx="60 + 8*70" cy="460 - 9*42" r="6" transform="translate(0,0)"/>
+  <text class="point-text" x="60 + 8*70 + 10" y="460 - 9*42 - 8" transform="translate(0,0)">Tally</text>
+
+  <!-- Marg (7, 8) -->
+  <circle class="point" cx="60 + 7*70" cy="460 - 8*42" r="6" transform="translate(0,0)"/>
+  <text class="point-text" x="60 + 7*70 + 10" y="460 - 8*42 - 8" transform="translate(0,0)">Marg</text>
+
+  <!-- Zoho Books (7, 7) -->
+  <circle class="point" cx="60 + 7*70" cy="460 - 7*42" r="6" transform="translate(0,0)"/>
+  <text class="point-text" x="60 + 7*70 + 10" y="460 - 7*42 - 8" transform="translate(0,0)">Zoho</text>
+
+  <!-- Busy (6, 7) -->
+  <circle class="point" cx="60 + 6*70" cy="460 - 7*42" r="6" transform="translate(0,0)"/>
+  <text class="point-text" x="60 + 6*70 + 10" y="460 - 7*42 - 8" transform="translate(0,0)">Busy</text>
+
+  <!-- myBillBook (4,5) -->
+  <circle class="point" cx="60 + 4*70" cy="460 - 5*42" r="6" transform="translate(0,0)"/>
+  <text class="point-text" x="60 + 4*70 + 10" y="460 - 5*42 - 8" transform="translate(0,0)">myBillBook</text>
+
+  <!-- Giddh (5,6) -->
+  <circle class="point" cx="60 + 5*70" cy="460 - 6*42" r="6" transform="translate(0,0)"/>
+  <text class="point-text" x="60 + 5*70 + 10" y="460 - 6*42 - 8" transform="translate(0,0)">Giddh</text>
+
+  <!-- ProfitBooks (3,4) -->
+  <circle class="point" cx="60 + 3*70" cy="460 - 4*42" r="6" transform="translate(0,0)"/>
+  <text class="point-text" x="60 + 3*70 + 10" y="460 - 4*42 - 8" transform="translate(0,0)">ProfitBooks</text>
+
+  <!-- Vyapar (3,3) -->
+  <circle class="point" cx="60 + 3*70" cy="460 - 3*42" r="6" transform="translate(0,0)"/>
+  <text class="point-text" x="60 + 3*70 + 10" y="460 - 3*42 - 8" transform="translate(0,0)">Vyapar</text>
+
+  <!-- Zaudit (4, 9.5) highlighted -->
+  <circle class="zaudit" cx="60 + 4*70" cy="460 - 9.5*42" r="8" transform="translate(0,0)"/>
+  <text class="point-text" x="60 + 4*70 + 12" y="460 - 9.5*42 + 4" transform="translate(0,0)" style="font-weight:bold; fill:#008080;">Zaudit</text>
+
+  <!-- Legend -->
+  <rect x="585" y="52" width="175" height="56" fill="#ffffff" stroke="#e5e7eb"/>
+  <circle cx="605" cy="72" r="6" class="point"/>
+  <text x="620" y="76" class="legend-text">Other products</text>
+  <circle cx="605" cy="98" r="8" class="zaudit"/>
+  <text x="620" y="102" class="legend-text" style="font-weight:bold; fill:#008080;">Zaudit</text>
+</svg>
+
+
