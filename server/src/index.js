@@ -14,8 +14,8 @@ const {
   SMTP_SECURE,
   SMTP_USER,
   SMTP_PASS,
-  MAIL_FROM,
-  MAIL_TO,
+  MAIL_FROM = '"Zaudit Early Access" <zaudit.co@gmail.com>',
+  MAIL_TO = 'zaudit.co@gmail.com',
   ALLOWED_ORIGINS,
 } = process.env;
 
@@ -136,4 +136,6 @@ app.listen(Number(PORT), () => {
   logger.info(`Server listening on port ${PORT}`);
   verifyTransporter();
 });
+
+
 

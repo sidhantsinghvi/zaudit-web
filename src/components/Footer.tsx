@@ -1,5 +1,7 @@
-import { Linkedin, Twitter, Mail, Shield } from 'lucide-react';
+import React from 'react';
+import { Linkedin, Twitter, Mail } from 'lucide-react';
 import { Button } from './ui/button';
+import Logo from './Logo';
 
 export default function Footer() {
   return (
@@ -8,11 +10,8 @@ export default function Footer() {
         <div className="grid md:grid-cols-12 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-5">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#008080] to-[#006666] flex items-center justify-center">
-                <Shield className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-2xl">Zaudit</h3>
+            <div className="mb-6">
+              <Logo width={160} height={80} />
             </div>
             <p className="text-white/70 mb-8 text-lg leading-relaxed max-w-md">
               AI-powered accounting and compliance platform built specifically for Indian SMEs. Transform your financial operations with intelligent automation.
@@ -34,14 +33,12 @@ export default function Footer() {
               >
                 <Twitter className="w-5 h-5" />
               </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                className="bg-white/5 hover:bg-white/10 border-white/10 hover:border-white/20 rounded-xl transition-all"
-                onClick={() => window.location.href = 'mailto:hello@zaudit.in'}
+              <a
+                href="mailto:zaudit.co@gmail.com"
+                className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-xl transition-all inline-flex items-center justify-center w-12 h-12"
               >
                 <Mail className="w-5 h-5" />
-              </Button>
+              </a>
             </div>
           </div>
 
