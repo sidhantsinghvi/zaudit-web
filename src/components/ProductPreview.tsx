@@ -29,66 +29,18 @@ export default function ProductPreview() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#E5E7EB] bg-gradient-to-br from-[#F9FAFB] to-white"
+          className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#E5E7EB] bg-black"
         >
           <div className="relative aspect-video">
             <iframe
               className="absolute inset-0 h-full w-full"
-              src="https://www.youtube.com/embed/f3nDRT_V4dY?rel=0&showinfo=0"
+              src="https://www.youtube-nocookie.com/embed/f3nDRT_V4dY?rel=0&modestbranding=1&controls=0&showinfo=0&iv_load_policy=3&color=white"
               title="Zaudit product walkthrough"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
             />
-
-            <div className="pointer-events-none absolute inset-0 flex flex-col justify-between p-6 sm:p-8 lg:p-12">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="ml-auto bg-white/80 backdrop-blur rounded-xl px-4 py-3 shadow-lg border border-[#E5E7EB]"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#008080]/10 flex items-center justify-center">
-                    <FileCheck className="w-4 h-4 text-[#008080]" />
-                  </div>
-                  <span className="text-sm text-[#1a1a1a] font-medium">Auto GST Filing</span>
-                </div>
-              </motion.div>
-
-              <div className="flex flex-wrap items-end justify-between gap-4">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                  className="bg-white/80 backdrop-blur rounded-xl px-4 py-3 shadow-lg border border-[#E5E7EB]"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#FF9933]/10 flex items-center justify-center">
-                      <TrendingUp className="w-4 h-4 text-[#FF9933]" />
-                    </div>
-                    <span className="text-sm text-[#1a1a1a] font-medium">Real-time Analytics</span>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 }}
-                  className="bg-white/80 backdrop-blur rounded-xl px-4 py-3 shadow-lg border border-[#E5E7EB]"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#008080]/10 flex items-center justify-center">
-                      <PieChart className="w-4 h-4 text-[#008080]" />
-                    </div>
-                    <span className="text-sm text-[#1a1a1a] font-medium">Smart Insights</span>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
           </div>
         </motion.div>
 

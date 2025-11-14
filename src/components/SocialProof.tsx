@@ -8,42 +8,36 @@ const voices = [
     author: 'Business Owner',
     role: 'Manufacturing',
     company: 'Jaipur',
-    rating: 5,
   },
   {
     quote: 'Limited reporting',
     author: 'Business Owner',
     role: 'Retail/Trading',
     company: 'Bangalore, Karnataka',
-    rating: 5,
   },
   {
     quote: 'Poor GST compliance',
     author: 'Business Owner',
     role: 'Manufacturing',
     company: 'Jaipur',
-    rating: 5,
   },
   {
     quote: 'Difficult customization',
     author: 'Business Owner',
     role: 'Retail/Trading',
     company: 'Bengaluru',
-    rating: 5,
   },
   {
     quote: 'Inventory management',
     author: 'Business Owner',
     role: 'Manufacturing',
     company: 'Bangalore',
-    rating: 5,
   },
   {
     quote: "Doesn't have flexibility as per unique requirements of our industry",
     author: 'Business Owner',
     role: 'Manufacturing',
     company: 'Nagaur',
-    rating: 5,
   },
 ];
 
@@ -84,12 +78,6 @@ export default function SocialProof() {
                 </div>
                 
                 <div className="relative z-10 space-y-6">
-                  <div className="flex gap-1">
-                    {[...Array(v.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-[#FF9933] text-[#FF9933]" />
-                    ))}
-                  </div>
-
                   <p className="text-[#4B5563] leading-relaxed">
                     "{v.quote}"
                   </p>
