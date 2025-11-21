@@ -11,6 +11,7 @@ import CompetitiveOverview from './components/CompetitiveOverview';
 import CostVsFeature from './components/CostVsFeature';
 import AutomationProductivity from './components/AutomationProductivity';
 import WhySwitch from './components/WhySwitch';
+import InsightsSection from './components/InsightsSection';
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
 
       {/* Comparison Page Sections */}
       <ComparisonHero />
+      <InsightsSection />
       <CompetitiveOverview />
       <CostVsFeature />
       <AutomationProductivity />

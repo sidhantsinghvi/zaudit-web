@@ -1,12 +1,12 @@
 import { motion } from 'motion/react';
 import { Button } from './ui/button';
 import { ArrowRight } from 'lucide-react';
+import SectionContainer from './SectionContainer';
 
 export default function ComparisonHero() {
   return (
-    <section id="comparison" className="py-24 lg:py-32 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
+    <SectionContainer id="comparison" className="bg-white">
+      <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -33,10 +33,8 @@ export default function ComparisonHero() {
             Try Zaudit Free
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
-        </motion.div>
-      </div>
-    </section>
+      </motion.div>
+    </SectionContainer>
   );
 }
-
 

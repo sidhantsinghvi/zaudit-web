@@ -1,10 +1,13 @@
 import { motion } from 'motion/react';
+import SectionContainer from './SectionContainer';
 
 export default function CompetitiveOverview() {
   return (
-    <section className="py-24 lg:py-32 px-6 bg-gradient-to-b from-[#F9FAFB] to-white">
-      <div className="max-w-5xl mx-auto">
-        <motion.div
+    <SectionContainer
+      className="bg-gradient-to-b from-[#F9FAFB] to-white"
+      innerClassName="max-w-4xl lg:max-w-5xl"
+    >
+      <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -14,9 +17,9 @@ export default function CompetitiveOverview() {
           <h3 className="text-3xl lg:text-4xl mb-4 leading-tight">
             Where Zaudit stands among India’s accounting software leaders (2025)
           </h3>
-        </motion.div>
+      </motion.div>
 
-        <motion.div
+      <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -38,10 +41,8 @@ export default function CompetitiveOverview() {
           <p className="text-[#1a1a1a]">
             Zaudit bridges these gaps — offering the power of an ERP, the speed of AI automation, and the simplicity of a modern SaaS experience.
           </p>
-        </motion.div>
-      </div>
-    </section>
+      </motion.div>
+    </SectionContainer>
   );
 }
-
 

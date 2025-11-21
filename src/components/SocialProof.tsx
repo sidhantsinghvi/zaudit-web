@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
-import { Quote, Star } from 'lucide-react';
+import { Quote } from 'lucide-react';
 import { Card } from './ui/card';
+import SectionContainer from './SectionContainer';
 
 const voices = [
   {
@@ -43,9 +44,8 @@ const voices = [
 
 export default function SocialProof() {
   return (
-    <section className="py-24 lg:py-32 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
+    <SectionContainer className="bg-white">
+      <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -61,9 +61,9 @@ export default function SocialProof() {
           <p className="text-xl text-[#6B7280] max-w-2xl mx-auto">
             Not a table, not a chart — just what people told us about their current systems.
           </p>
-        </motion.div>
+      </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid gap-8 md:grid-cols-3">
           {voices.map((v, index) => (
             <motion.div
               key={index}
@@ -100,8 +100,7 @@ export default function SocialProof() {
               </Card>
             </motion.div>
           ))}
-        </div>
       </div>
-    </section>
+    </SectionContainer>
   );
 }
