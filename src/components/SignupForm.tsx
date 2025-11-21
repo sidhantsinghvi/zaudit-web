@@ -20,22 +20,20 @@ export default function SignupForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const apiUrl = import.meta.env.VITE_API_URL;
+  // In development, use proxy. In production, use VITE_API_URL
+  const endpoint = apiUrl 
+    ? `${apiUrl.replace(/\/$/, '')}/api/contact`
+    : '/api/contact';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!apiUrl) {
-      setStatus('error');
-      setMessage('Form endpoint is not configured.');
-      return;
-    }
 
     setIsSubmitting(true);
     setStatus('idle');
     setMessage(null);
 
     try {
-      const response = await fetch(`${apiUrl.replace(/\/$/, '')}/api/contact`, {
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -44,6 +42,14 @@ export default function SignupForm() {
       const data = await response.json();
 
       if (!response.ok) {
+        // Handle validation errors with field-specific messages
+        if (data?.errors) {
+          const errorMessages = Object.values(data.errors)
+            .flat()
+            .filter(Boolean)
+            .join(', ');
+          throw new Error(errorMessages || data?.message || 'Please check your input and try again.');
+        }
         throw new Error(data?.message ?? 'Something went wrong. Please try again.');
       }
 

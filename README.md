@@ -6,7 +6,8 @@ This repository now contains both the Vite landing page and a lightweight Expres
 ## Frontend (Vite)
 - Install dependencies: `npm install`
 - Local dev: `npm run dev`
-- Point the form to your backend by creating a `.env` file with `VITE_API_URL=http://localhost:4000` (or your deployed URL).
+- The form automatically connects to the backend via Vite proxy in development (no configuration needed).
+- For production, create a `.env` file with `VITE_API_URL=https://your-backend-url.com` (see `.env.example`).
 
 ## Backend (Express + Nodemailer)
 ```

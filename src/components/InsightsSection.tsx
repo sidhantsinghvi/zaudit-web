@@ -1,5 +1,5 @@
 import SectionContainer from './SectionContainer';
-import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip } from 'recharts';
+import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 
 const painPointData = [
   { name: 'Too slow / complex', value: 4 },
@@ -37,27 +37,27 @@ function InsightCard({
   return (
     <div className="bg-white border border-[#E5E7EB] shadow-lg rounded-3xl p-6 flex flex-col gap-4">
       <div className="text-sm uppercase tracking-[0.4em] text-[#008080]/80">{title}</div>
-      <div className="h-48">
-        <ResponsiveContainer width="100%" height="100%">
-          <PieChart>
-            <Pie
-              data={data}
-              dataKey="value"
-              nameKey="name"
-              outerRadius="80%"
-              innerRadius={38}
-              paddingAngle={3}
-            >
-              {data.map((entry, index) => (
-                <Cell key={entry.name} fill={COLORS[index % COLORS.length]} />
-              ))}
-            </Pie>
-            <Tooltip
-              formatter={(value: number) => `${value}`}
-              contentStyle={{ background: '#ffffff', borderRadius: 12 }}
-            />
-          </PieChart>
-        </ResponsiveContainer>
+      <div className="flex justify-center">
+        <PieChart width={220} height={220}>
+          <Pie
+            data={data}
+            dataKey="value"
+            nameKey="name"
+            cx="50%"
+            cy="50%"
+            outerRadius={80}
+            innerRadius={40}
+            paddingAngle={2}
+          >
+            {data.map((entry, index) => (
+              <Cell key={entry.name} fill={COLORS[index % COLORS.length]} />
+            ))}
+          </Pie>
+          <Tooltip
+            formatter={(value: number) => `${value}`}
+            contentStyle={{ background: '#ffffff', borderRadius: 12, borderColor: '#E5E7EB' }}
+          />
+        </PieChart>
       </div>
       {highlight ? (
         <p className="text-sm text-[#4B5563]">{highlight}</p>

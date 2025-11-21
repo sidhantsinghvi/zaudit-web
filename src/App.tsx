@@ -3,7 +3,6 @@ import ProblemSection from './components/ProblemSection';
 import SolutionSection from './components/SolutionSection';
 import ProductPreview from './components/ProductPreview';
 import SignupForm from './components/SignupForm';
-import SocialProof from './components/SocialProof';
 import Footer from './components/Footer';
 import FloatingCTA from './components/FloatingCTA';
 import ComparisonHero from './components/ComparisonHero';
@@ -35,9 +34,6 @@ export default function App() {
       <CostVsFeature />
       <AutomationProductivity />
       <WhySwitch />
-
-      {/* Social Proof */}
-      <SocialProof />
 
       {/* Signup Form */}
       <SignupForm />
