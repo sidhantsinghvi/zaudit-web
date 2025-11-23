@@ -12,6 +12,7 @@ import {
 } from 'recharts';
 import { Card } from './ui/card';
 import { Clock, Bot, Cloud } from 'lucide-react';
+import SectionContainer from './SectionContainer';
 
 type AutomationSuite = {
   name: string;
@@ -179,9 +180,8 @@ export default function AutomationProductivity() {
   };
 
   return (
-    <section className="py-24 lg:py-32 px-6 bg-[#F9FAFB]">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
+    <SectionContainer className="bg-[#F9FAFB]">
+      <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -195,9 +195,9 @@ export default function AutomationProductivity() {
             While Suvit and ClearTax automate compliance tasks, Zaudit pairs that intelligence with complete accounting, inventory, and reporting —
             a true end-to-end agentic accounting suite for SMEs.
           </p>
-        </motion.div>
+      </motion.div>
 
-        <Card className="p-6 rounded-2xl border-2 border-[#E5E7EB] bg-white">
+      <Card className="p-6 rounded-2xl border-2 border-[#E5E7EB] bg-white">
           <div className="w-full h-96">
             <ResponsiveContainer width="100%" height="100%">
               <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
@@ -285,10 +285,8 @@ export default function AutomationProductivity() {
               <span className="text-[#374151]">Works anywhere — no installation</span>
             </div>
           </div>
-        </Card>
-      </div>
-    </section>
+      </Card>
+    </SectionContainer>
   );
 }
-
 

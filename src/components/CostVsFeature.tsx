@@ -11,6 +11,7 @@ import {
   ZAxis
 } from 'recharts';
 import { Card } from './ui/card';
+import SectionContainer from './SectionContainer';
 
 type Competitor = {
   name: string;
@@ -207,9 +208,8 @@ export default function CostVsFeature() {
   };
 
   return (
-    <section className="py-24 lg:py-32 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
+    <SectionContainer className="bg-white">
+      <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -222,9 +222,9 @@ export default function CostVsFeature() {
             Zaudit offers full ERP functionality — general ledger, inventory, payroll, billing, and reporting — at a fraction of the cost.
             Cloud-native, real-time synced, and ready for GST, e-invoicing, and multi-branch out of the box.
           </p>
-        </motion.div>
+      </motion.div>
 
-        <Card className="p-6 rounded-2xl border-2 border-[#E5E7EB] bg-white">
+      <Card className="p-6 rounded-2xl border-2 border-[#E5E7EB] bg-white">
           <div className="w-full h-96">
             <ResponsiveContainer width="100%" height="100%">
               <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
@@ -295,10 +295,8 @@ export default function CostVsFeature() {
               </div>
             </div>
           </div>
-        </Card>
-      </div>
-    </section>
+      </Card>
+    </SectionContainer>
   );
 }
-
 

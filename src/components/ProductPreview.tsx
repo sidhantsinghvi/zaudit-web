@@ -1,12 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { TrendingUp, FileCheck, PieChart } from 'lucide-react';
+import SectionContainer from './SectionContainer';
 
 export default function ProductPreview() {
   return (
-    <section id="demo" className="py-24 lg:py-32 px-6 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
+    <SectionContainer id="demo" className="bg-white" innerClassName="max-w-5xl">
+      <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -22,9 +21,9 @@ export default function ProductPreview() {
           <p className="text-xl text-[#6B7280] max-w-2xl mx-auto">
             Experience how intelligent automation transforms your accounting workflow
           </p>
-        </motion.div>
+      </motion.div>
 
-        <motion.div
+      <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -42,36 +41,29 @@ export default function ProductPreview() {
               allowFullScreen
             />
           </div>
-        </motion.div>
+      </motion.div>
 
-        {/* Feature Stats */}
-        <motion.div
+      {/* Feature Stats */}
+      <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-3 gap-8 mt-16"
+          className="mt-16 flex flex-col gap-8 text-center sm:flex-row sm:items-start sm:justify-center sm:gap-16 max-w-4xl mx-auto"
         >
-          <div className="text-center">
-            <div className="text-4xl lg:text-5xl bg-gradient-to-r from-[#008080] to-[#006666] bg-clip-text text-transparent mb-3">
-              10x
+        {[
+          { label: 'Faster Processing', value: '10x' },
+          { label: 'Accuracy Rate', value: '99.9%' },
+          { label: 'AI Assistance', value: '24/7' }
+        ].map(stat => (
+          <div key={stat.label}>
+            <div className="text-4xl lg:text-5xl bg-gradient-to-r from-[#008080] to-[#006666] bg-clip-text text-transparent mb-2 sm:mb-3">
+              {stat.value}
             </div>
-            <p className="text-[#6B7280]">Faster Processing</p>
+            <p className="text-[#6B7280]">{stat.label}</p>
           </div>
-          <div className="text-center">
-            <div className="text-4xl lg:text-5xl bg-gradient-to-r from-[#008080] to-[#006666] bg-clip-text text-transparent mb-3">
-              99.9%
-            </div>
-            <p className="text-[#6B7280]">Accuracy Rate</p>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl lg:text-5xl bg-gradient-to-r from-[#008080] to-[#006666] bg-clip-text text-transparent mb-3">
-              24/7
-            </div>
-            <p className="text-[#6B7280]">AI Assistance</p>
-          </div>
-        </motion.div>
-      </div>
-    </section>
+        ))}
+      </motion.div>
+    </SectionContainer>
   );
 }

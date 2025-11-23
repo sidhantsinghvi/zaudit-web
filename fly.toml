@@ -1,8 +1,26 @@
+# app = "zaudit-form-backend"
+# primary_region = "bom"
+
+# [build]
+#   dockerfile = "server/Dockerfile"
+
+# [env]
+#   PORT = "8080"
+
+# [http_service]
+#   internal_port = 8080
+#   force_https = true
+#   auto_stop_machines = true
+#   auto_start_machines = true
+#   min_machines_running = 0
+#   processes = ["app"]
+
+
 app = "zaudit-form-backend"
 primary_region = "bom"
 
 [build]
-  dockerfile = "server/Dockerfile"
+  dockerfile = "./server/Dockerfile"
 
 [env]
   PORT = "8080"
@@ -13,7 +31,4 @@ primary_region = "bom"
   auto_stop_machines = true
   auto_start_machines = true
   min_machines_running = 0
-  processes = ["app"]
-
-
 

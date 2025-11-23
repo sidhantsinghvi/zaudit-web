@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { FileText, AlertCircle, Clock } from 'lucide-react';
+import SectionContainer from './SectionContainer';
 
 const problems = [
   {
@@ -24,9 +25,8 @@ const problems = [
 
 export default function ProblemSection() {
   return (
-    <section className="py-24 lg:py-32 px-6 bg-gradient-to-b from-white to-[#F9FAFB]">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
+    <SectionContainer className="bg-gradient-to-b from-white to-[#F9FAFB]">
+      <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -44,9 +44,9 @@ export default function ProblemSection() {
             spreadsheets/WhatsApp. The top pain points: speed and complexity, limited reporting, and
             GST compliance that takes too much manual effort.
           </p>
-        </motion.div>
+      </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid gap-8 md:grid-cols-3">
           {problems.map((problem, index) => (
             <motion.div
               key={index}
@@ -70,8 +70,7 @@ export default function ProblemSection() {
               </div>
             </motion.div>
           ))}
-        </div>
       </div>
-    </section>
+    </SectionContainer>
   );
 }

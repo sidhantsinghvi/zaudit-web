@@ -5,6 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { Card } from './ui/card';
 import { Sparkles, Check, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
+import SectionContainer from './SectionContainer';
 
 export default function SignupForm() {
   const [formData, setFormData] = useState({
@@ -19,22 +20,20 @@ export default function SignupForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const apiUrl = import.meta.env.VITE_API_URL;
+  // In development, use proxy. In production, use VITE_API_URL
+  const endpoint = apiUrl 
+    ? `${apiUrl.replace(/\/$/, '')}/api/contact`
+    : '/api/contact';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!apiUrl) {
-      setStatus('error');
-      setMessage('Form endpoint is not configured.');
-      return;
-    }
 
     setIsSubmitting(true);
     setStatus('idle');
     setMessage(null);
 
     try {
-      const response = await fetch(`${apiUrl.replace(/\/$/, '')}/api/contact`, {
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -43,6 +42,14 @@ export default function SignupForm() {
       const data = await response.json();
 
       if (!response.ok) {
+        // Handle validation errors with field-specific messages
+        if (data?.errors) {
+          const errorMessages = Object.values(data.errors)
+            .flat()
+            .filter(Boolean)
+            .join(', ');
+          throw new Error(errorMessages || data?.message || 'Please check your input and try again.');
+        }
         throw new Error(data?.message ?? 'Something went wrong. Please try again.');
       }
 
@@ -63,9 +70,12 @@ export default function SignupForm() {
   };
 
   return (
-    <section id="signup" className="py-24 lg:py-32 px-6 bg-gradient-to-b from-[#F9FAFB] to-white">
-      <div className="max-w-4xl mx-auto">
-        <motion.div
+    <SectionContainer
+      id="signup"
+      className="bg-gradient-to-b from-[#F9FAFB] to-white"
+      innerClassName="max-w-4xl"
+    >
+      <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -83,9 +93,9 @@ export default function SignupForm() {
           <p className="text-xl text-[#6B7280] max-w-2xl mx-auto">
             Be among the first to experience AI-powered accounting. Get priority access, exclusive features, and direct support.
           </p>
-        </motion.div>
+      </motion.div>
 
-        <motion.div
+      <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -213,13 +223,13 @@ export default function SignupForm() {
           </Card>
         </motion.div>
 
-        {/* Trust Indicators */}
-        <motion.div
+      {/* Trust Indicators */}
+      <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-3 gap-8 mt-16 text-center"
+          className="grid gap-6 mt-16 text-center sm:grid-cols-3"
         >
           <div className="space-y-2">
             <div className="w-12 h-12 rounded-full bg-[#008080]/10 flex items-center justify-center mx-auto">
@@ -239,8 +249,7 @@ export default function SignupForm() {
             </div>
             <p className="text-sm text-[#6B7280]">Built for India</p>
           </div>
-        </motion.div>
-      </div>
-    </section>
+      </motion.div>
+    </SectionContainer>
   );
 }

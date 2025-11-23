@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Zap, Bot, MessageCircle, RefreshCw, Lock, CheckCircle } from 'lucide-react';
+import SectionContainer from './SectionContainer';
 
 const features = [
   {
@@ -31,9 +32,8 @@ const features = [
 
 export default function SolutionSection() {
   return (
-    <section className="py-24 lg:py-32 px-6 bg-[#F9FAFB]">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
+    <SectionContainer className="bg-[#F9FAFB]">
+      <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -49,16 +49,16 @@ export default function SolutionSection() {
           <p className="text-xl text-[#6B7280] max-w-2xl mx-auto">
             Everything you need to transform your accounting workflow, powered by AI.
           </p>
-        </motion.div>
+      </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+      <div className="grid gap-12 mb-20 lg:grid-cols-[1.1fr,0.9fr] items-stretch xl:gap-20">
           {/* Feature List */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="space-y-6 self-stretch"
           >
             {features.map((feature, index) => (
               <motion.div
@@ -88,10 +88,10 @@ export default function SolutionSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-8"
+            className="flex h-full flex-col gap-8"
           >
             {/* Stats Card */}
-            <div className="bg-gradient-to-br from-[#008080] to-[#006666] rounded-2xl p-8 text-white shadow-xl">
+            <div className="bg-gradient-to-br from-[#008080] to-[#006666] rounded-2xl p-8 text-white shadow-xl flex-1">
               <h3 className="text-2xl mb-6">Transform Your Workflow</h3>
               <div className="space-y-6">
                 <div className="flex items-center justify-between pb-4 border-b border-white/20">
@@ -110,7 +110,7 @@ export default function SolutionSection() {
             </div>
 
             {/* Benefits List */}
-            <div className="bg-white rounded-2xl p-8 border border-[#E5E7EB] shadow-lg">
+            <div className="bg-white rounded-2xl p-8 border border-[#E5E7EB] shadow-lg flex-1">
               <h3 className="text-xl mb-6 text-[#1a1a1a]">Key Benefits</h3>
               <div className="space-y-4">
                 {[
@@ -128,8 +128,7 @@ export default function SolutionSection() {
               </div>
             </div>
           </motion.div>
-        </div>
       </div>
-    </section>
+    </SectionContainer>
   );
 }

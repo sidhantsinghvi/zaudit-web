@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Cloud, Users, Bot, Smile, Wallet } from 'lucide-react';
 import { Card } from './ui/card';
+import SectionContainer from './SectionContainer';
 
 const reasons = [
   { icon: Cloud, text: 'Cloud-native, no installation — log in from anywhere, no backups needed' },
@@ -12,9 +13,8 @@ const reasons = [
 
 export default function WhySwitch() {
   return (
-    <section className="py-24 lg:py-32 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
+    <SectionContainer className="bg-white">
+      <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -22,9 +22,9 @@ export default function WhySwitch() {
           className="text-center mb-12"
         >
           <h3 className="text-3xl lg:text-4xl mb-4">Why 21st-century businesses are moving from Tally to Zaudit</h3>
-        </motion.div>
+      </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {reasons.map((r, i) => (
             <motion.div
               key={i}
@@ -43,10 +43,8 @@ export default function WhySwitch() {
               </Card>
             </motion.div>
           ))}
-        </div>
       </div>
-    </section>
+    </SectionContainer>
   );
 }
-
 
